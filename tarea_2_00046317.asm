@@ -1,13 +1,5 @@
         org     100h
 
-        mov cl, " "
-        mov [244h],  cl
-        mov [246h],  cl
-        mov [247h],  cl
-        mov [248h],  cl
-        mov [249h],  cl
-        mov [24Bh],  cl
-
         ;Ejercicio 1
         ;carné 00046317 -> 4+6+3+1+7
         mov     ax, 0000h
