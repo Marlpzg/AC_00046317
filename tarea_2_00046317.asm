@@ -34,13 +34,18 @@
 
         ;Ejercicio 2
         mov     ax, 0000h
-        mov     al, 1d
+        mov     al, 2d
         mov     bx, 210h
-        mov     cl, 2d
-est:    mul     cl
-        mov     [bx], al
-        add     bx, 1h
-        cmp     bx, 216h
+        mov     cx, 2d
+est:    mul     cx
+        mov     [bx], ax
+        cmp     ah, 00h
+        ja      two
+        je      one
+two:    add     bx, 2h
+        jmp     sig
+one:    add     bx, 1h
+sig:    cmp     bx, 21Fh
         jb      est
 
         ;Ejercicio 3
