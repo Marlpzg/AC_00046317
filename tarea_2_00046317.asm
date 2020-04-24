@@ -33,7 +33,6 @@
         mov     [20Ah], cl
 
         ;Ejercicio 2
-
         mov     ax, 0000h
         mov     al, 1d
         mov     bx, 210h
@@ -41,7 +40,7 @@
 est:    mul     cl
         mov     [bx], al
         add     bx, 1h
-        cmp     bx, 21Fh
+        cmp     bx, 216h
         jb      est
 
         ;Ejercicio 3
@@ -49,15 +48,14 @@ est:    mul     cl
         mov     [220h], al  ; F0 = 1
         mov     [221h], al  ; F1 = 1
         mov     bx, 222h
-fibo:   mov     cx, bx
-        sub     bx, 2h
+fibo:   sub     bx, 2h
         mov     al, [bx]
         add     bx, 1h
         add     al, [bx]
         add     bx, 1h
         mov     [bx], al
         add     bx, 1h
-        cmp     bx, 22Fh
+        cmp     bx, 22Ch
         jb      fibo
 
         int 10h
