@@ -1,5 +1,13 @@
         org     100h
 
+        mov cl, " "
+        mov [244h],  cl
+        mov [246h],  cl
+        mov [247h],  cl
+        mov [248h],  cl
+        mov [249h],  cl
+        mov [24Bh],  cl
+
         ;Ejercicio 1
         ;carné 00046317 -> 4+6+3+1+7
         mov     ax, 0000h
@@ -49,18 +57,22 @@ sig:    cmp     bx, 21Fh
         jb      est
 
         ;Ejercicio 3
-        mov     al, 1d
-        mov     [220h], al  ; F0 = 1
-        mov     [221h], al  ; F1 = 1
+        mov     ax, 0000h
+        mov     ax, 0d
+        mov     [220h], ax  ; F0 = 0
+        mov     ax, 1d
+        mov     [221h], ax  ; F1 = 1
         mov     bx, 222h
-fibo:   sub     bx, 2h
+fibo:   mov     ax, 0000h
+        mov     [bx], ax
+        sub     bx, 2h
         mov     al, [bx]
         add     bx, 1h
-        add     al, [bx]
+        add     ax, [bx]
         add     bx, 1h
-        mov     [bx], al
+        mov     [bx], ax
         add     bx, 1h
-        cmp     bx, 22Ch
+        cmp     bx, 22Fh
         jb      fibo
 
-        int 10h
+        int 20h
